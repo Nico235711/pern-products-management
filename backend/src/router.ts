@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { createProduct } from './handlers/product'
+import { createProduct, getProducts } from './handlers/product'
 import { body } from 'express-validator'
 import { handleInputErrors } from './middleware/handleInputErrors'
 
@@ -17,8 +17,6 @@ router.post("/",
   createProduct
 )
 
-router.get("/", (req, res) => {
-  res.send("hola mundo")
-})
+router.get("/", getProducts)
 
 export default router

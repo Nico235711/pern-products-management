@@ -11,3 +11,19 @@ export const createProduct = async (req: Request, res: Response) => {
 
   }
 }
+
+export const getProducts = async (req: Request, res: Response) => {
+  try {
+    const products = await Product.findAll({
+      // omitiendo campos
+      attributes: {
+        exclude: ["updatedAt", "createdAt"]
+      }
+    })
+    res.json({ data: products })
+
+  } catch (error) {
+    console.log(error);
+
+  }
+}
