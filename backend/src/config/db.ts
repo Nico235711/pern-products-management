@@ -1,4 +1,4 @@
-import { Sequelize } from 'sequelize'
+import { Sequelize } from 'sequelize-typescript'
 import dotenv from 'dotenv'
 
 dotenv.config()
@@ -9,6 +9,7 @@ export const db = new Sequelize(
   {
     host: process.env.DB_HOST,
     port: +process.env.PORT,
-    dialect: "postgres"
+    dialect: "postgres",
+    models: [__dirname + "/../models/**/*.ts"]
   }
 )
