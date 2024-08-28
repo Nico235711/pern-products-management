@@ -1,4 +1,7 @@
-import { sumar } from "./server";
+import server from "./server"
 
-console.log("hola mundo");
-sumar()
+const port = process.env.DB_PORT || 4000
+server.listen(port, () => {
+  console.log(`REST API funcionad en http://localhost:${port}`);
+  
+})
