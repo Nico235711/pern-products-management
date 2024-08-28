@@ -17,6 +17,9 @@ connectDB()
 // creando el servidor
 const server = express()
 
+// leer formato JSON
+server.use(express.json())
+
 // usando el router
 server.use("/api/products", router)
 
