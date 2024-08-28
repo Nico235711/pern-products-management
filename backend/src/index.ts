@@ -1,7 +1,8 @@
 import server from "./server"
+import colors from 'colors'
 
-const port = process.env.DB_PORT || 4000
+const port = process.env.PORT || 4000
 server.listen(port, () => {
-  console.log(`REST API funcionad en http://localhost:${port}`);
+  console.log(colors.magenta(`REST API funcionando en http://localhost:${port}`));
   
 })
