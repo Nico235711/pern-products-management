@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { createProduct, getProductById, getProducts, updateProductById } from './handlers/product'
+import { createProduct, getProductById, getProducts, updateAvailability, updateProductById } from './handlers/product'
 import { body, param } from 'express-validator'
 import { handleInputErrors } from './middleware/handleInputErrors'
 
@@ -38,6 +38,12 @@ router.put("/:id",
     .withMessage("Valor para la disponibilidad no válido"),
   handleInputErrors,
   updateProductById
+)
+
+router.patch("/:id", 
+  param("id").isInt().withMessage("ID no válido"),
+  handleInputErrors,
+  updateAvailability
 )
 
 export default router
