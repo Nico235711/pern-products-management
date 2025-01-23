@@ -14,7 +14,7 @@ export async function connectDB() {
     await db.authenticate()
     
     db.sync()
-    // console.log(colors.green("Conección exitosa a la BD"));
+    console.log(colors.green("Conección exitosa a la BD"));
     
   } catch (error) {
     // console.log(error);
