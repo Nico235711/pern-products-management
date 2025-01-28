@@ -29,7 +29,7 @@ const server = express()
 server.use(express.json())
 
 // habilito los CORS
-server.use(cors(corsOptions))
+// server.use(cors(corsOptions))
 
 // habilito el logging de morgan
 server.use(morgan("dev"))
