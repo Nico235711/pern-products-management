@@ -69,6 +69,23 @@ export class ProductsController {
     }
   }
 
+  static updateProductAvailability = async (req: Request, res: Response) => {
+    try {
+      const { id } = req.params
+      const product = await Product.findByPk(id)
+      if (!product) {
+        const error = new Error("Producto no encontrado")
+        res.status(STATUS_CODES.notFound).json({ error: error.message })
+        return
+      }
+      product.availability = !product.dataValues.availability
+      await product.save()
+      res.status(STATUS_CODES.ok).json({ data: product })
+    } catch (error) {
+      throw error
+    }
+  }
+
   static deleteProductById = async (req: Request, res: Response) => {
     try {
       const { id } = req.params

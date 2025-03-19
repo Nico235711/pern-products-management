@@ -31,6 +31,13 @@ router.put("/:id",
   ProductsController.updateProductById
 )
 
+router.patch("/:id", 
+  param("id")
+    .isNumeric().withMessage("ID no válido"),
+  errorHandler,
+  ProductsController.updateProductAvailability
+)
+
 router.delete("/:id", 
   param("id")
     .isNumeric().withMessage("ID no válido"),
