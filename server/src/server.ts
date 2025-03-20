@@ -2,17 +2,15 @@ import express from 'express'
 import morgan from 'morgan'
 import productsRoutes from './routes/productsRoutes'
 import { db } from './config/db'
-import { styleText } from 'node:util'
 
 // conección a la base de datos
-async function connectDB() {
+export async function connectDB() {
   try {
     await db.authenticate()
     await db.sync()
-    console.log(styleText("greenBright", "Database connected"));
     
   } catch (error) {
-    throw error
+    throw new Error("Hubo un error al conectar a la BD")
   }
 }
 connectDB()

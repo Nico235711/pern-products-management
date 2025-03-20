@@ -4,7 +4,9 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon --exec ts-node src/index.ts",
-    "seed": "ts-node src/config/seed.ts"
+    "test": "jest --detectOpenHandles",
+    "pretest": "ts-node src/config/clearDB.ts --clear",
+    "test:coverage": "npm run pretest && jest --detectOpenHandles --coverage"
   },
   "keywords": [],
   "author": "",
@@ -12,8 +14,13 @@
   "description": "",
   "devDependencies": {
     "@types/express": "^5.0.1",
+    "@types/jest": "^29.5.14",
     "@types/morgan": "^1.9.9",
     "@types/node": "^22.13.10",
+    "@types/supertest": "^6.0.2",
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0",
+    "ts-jest": "^29.2.6",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.2"
   },
