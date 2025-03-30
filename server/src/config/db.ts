@@ -1,9 +1,8 @@
 
 import { Sequelize } from 'sequelize-typescript'
-import "dotenv/config"
+process.loadEnvFile()
 
 export const db = new Sequelize(process.env.DATABASE_URL!, {
   models: [__dirname + "/../models/**"],
   logging: false,
-  ssl: true
 })
