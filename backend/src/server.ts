@@ -3,8 +3,8 @@ import morgan from 'morgan'
 import productsRoute from './routes/productsRoute'
 import connectDB from './config/dbConfig'
 
-const app = express()
 connectDB()
+const app = express()
 
 app.use(express.json())
 app.use(morgan("dev"))
